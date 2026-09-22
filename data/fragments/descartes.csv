@@ -1,0 +1,10 @@
+id,motivo
+LB-007,"capo: la fuente no es una cancion, es un indice de transcripciones de usuario (url -annotated)"
+LB-013,"cana: grabacion de 1965 (fuera de la ventana 1917-1955), homoglifo cirilico en la letra, y el uso es idiomatico (dar la cana) y no el sustantivo policia"
+LB-024,"banda: la fuente no es una cancion, es un calendario editorial de Genius (url -annotated)"
+LB-066,"toque: sentido equivocado (el toque = el detalle/sabor, no la jerga de cantidad)"
+LB-084,"fuego: La Sonora Dinamita es cumbia colombiana, no rioplatense ni del estrato tango"
+LB-011,"pileta: uso idiomatico y metaforico (darse juego de pileta), no sirve para una definicion de 4 opciones"
+LB-061,boludo: el item es de estrato tango pero la fuente es una cancion de 2018 (La Mariposa - Maria Campos)
+LB-066,"toque: el uso es al toque (= enseguida), no el sentido un poco que declara el CSV; ademas viene deformado (toque-roque). Definir cual acepcion queremos."
+LB-024,"banda: el uso es tu banda (= tu grupo/crew), no el sentido mucho/muchos que declara el CSV"

@@ -1,0 +1,91 @@
+id,term,layer,stratum,artist,song,year
+LB-001,facha,falso_amigo,trap,La Joaqui,Butakera,2022
+LB-002,prolijo,falso_amigo,tango,,,
+LB-003,boliche,falso_amigo,trap,Bizarrap,"Duki: Bzrp Music Sessions, Vol. 50/66",2022
+LB-004,torta,falso_amigo,trap,Trueno,Sangría,2020
+LB-005,vereda,falso_amigo,tango,Anibal Troilo,Sur,1948
+LB-006,pendejo,falso_amigo,trap,,,
+LB-007,capo,falso_amigo,trap,,,
+LB-008,coger,falso_amigo,trap,,,
+LB-009,concha,falso_amigo,trap,,,
+LB-010,saco,falso_amigo,tango,,,
+LB-011,pileta,falso_amigo,tango,,,
+LB-012,mango,falso_amigo,tango,Carlos Gardel,"Yira, Yira",1930
+LB-013,cana,falso_amigo,tango,,,
+LB-014,gamba,falso_amigo,trap,,,
+LB-015,departamento,falso_amigo,tango,,,
+LB-016,cargar,falso_amigo,trap,,,
+LB-017,curro,falso_amigo,tango,,,
+LB-018,macana,falso_amigo,tango,,,
+LB-019,bombacha,falso_amigo,tango,,,
+LB-020,mina,falso_amigo,tango,Edmundo Rivero,El Ciruja,1926
+LB-021,china,falso_amigo,tango,,,
+LB-022,prenda,falso_amigo,tango,,,
+LB-023,gaucho,falso_amigo,tango,,,
+LB-024,banda,falso_amigo,trap,,,
+LB-025,colectivo,falso_amigo,trap,,,
+LB-026,joda,falso_amigo,tango,,,
+LB-027,recibirse,falso_amigo,trap,,,
+LB-028,valija,falso_amigo,trap,,,
+LB-029,campera,falso_amigo,trap,,,
+LB-030,pollera,falso_amigo,tango,Edmundo Rivero,Atenti Pebeta,1929
+LB-031,bicho,falso_amigo,trap,Duki,Hello Cotto,2017
+LB-032,living,falso_amigo,trap,Neo Pistea,CASAPARLANTE: NEO PISTEA,2025
+LB-033,remera,falso_amigo,trap,,,
+LB-034,frutilla,falso_amigo,tango,,,
+LB-035,subte,falso_amigo,tango,,,
+LB-036,matear,falso_amigo,tango,,,
+LB-037,birome,falso_amigo,tango,,,
+LB-038,che,falso_amigo,tango,Julio Sosa,Che Papusa Oí!,1927
+LB-039,auto,falso_amigo,tango,Julio Sosa,Che Papusa Oí!,1927
+LB-040,bombon,falso_amigo,trap,,,
+LB-041,laburo,lunfardo_sin_homonimo,tango,Edmundo Rivero,El Ciruja,1926
+LB-042,fiaca,lunfardo_sin_homonimo,tango,,,
+LB-043,chanta,lunfardo_sin_homonimo,trap,,,
+LB-044,atorrante,lunfardo_sin_homonimo,tango,,,
+LB-045,bagayo,lunfardo_sin_homonimo,tango,,,
+LB-046,piantar,lunfardo_sin_homonimo,tango,,,
+LB-047,chanflon,lunfardo_sin_homonimo,tango,,,
+LB-048,bulin,lunfardo_sin_homonimo,tango,Anibal Troilo,El Bulín De La Calle Ayacucho,1923
+LB-049,chamuyo,lunfardo_sin_homonimo,trap,,,
+LB-050,bacan,lunfardo_sin_homonimo,tango,,,
+LB-051,mufa,lunfardo_sin_homonimo,tango,,,
+LB-052,quilombo,lunfardo_sin_homonimo,trap,Duki,Hello Cotto,2017
+LB-053,bondi,lunfardo_sin_homonimo,trap,,,
+LB-054,gomia,lunfardo_sin_homonimo,trap,,,
+LB-055,jermu,lunfardo_sin_homonimo,tango,,,
+LB-056,ortiba,lunfardo_sin_homonimo,tango,,,
+LB-057,garca,lunfardo_sin_homonimo,trap,,,
+LB-058,troesma,lunfardo_sin_homonimo,tango,,,
+LB-059,feca,lunfardo_sin_homonimo,tango,,,
+LB-060,junar,lunfardo_sin_homonimo,tango,,,
+LB-061,boludo,polisemico_interno,tango,,,
+LB-062,posta,polisemico_interno,trap,,,
+LB-063,bocha,polisemico_interno,trap,,,
+LB-064,grosso,polisemico_interno,trap,,,
+LB-065,piola,polisemico_interno,tango,,,
+LB-066,toque,polisemico_interno,trap,,,
+LB-067,manija,polisemico_interno,trap,,,
+LB-068,palo,polisemico_interno,trap,L-Gante,CUMBIA MAFIA 420,2022
+LB-069,verde,polisemico_interno,trap,YSY A,Diablo,2020
+LB-070,careta,polisemico_interno,trap,,,
+LB-071,banca,polisemico_interno,trap,,,
+LB-072,curtir,polisemico_interno,tango,,,
+LB-073,cuadrar,polisemico_interno,trap,,,
+LB-074,pesado,polisemico_interno,tango,,,
+LB-075,manso,polisemico_interno,trap,,,
+LB-076,amor,control_negativo,tango,Carlos Gardel,"Yira, Yira",1930
+LB-077,corazon,control_negativo,trap,,,
+LB-078,noche,control_negativo,tango,Julio Sosa,Cambalache,1934
+LB-079,camino,control_negativo,trap,Paulo Londra,Adán y Eva,2018
+LB-080,sueno,control_negativo,tango,,,
+LB-081,tiempo,control_negativo,trap,Duki,She Don’t Give a Fo,2017
+LB-082,cielo,control_negativo,tango,Anibal Troilo,Sur,1948
+LB-083,mar,control_negativo,trap,KHEA,Loca,2017
+LB-084,fuego,control_negativo,tango,,,
+LB-085,silencio,control_negativo,trap,Duki,No Vendo Trap,2019
+LB-086,lagrima,control_negativo,tango,,,
+LB-087,sol,control_negativo,trap,Trueno,TIERRA ZANTA,2022
+LB-088,viento,control_negativo,tango,Roberto Goyeneche,Naranjo en Flor,1944
+LB-089,luz,control_negativo,trap,Trueno,TIERRA ZANTA,2022
+LB-090,estrella,control_negativo,tango,,,
