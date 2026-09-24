@@ -1,0 +1,191 @@
+# Configuracion central del pipeline de LunfaBench.
+# Todo umbral o parametro que cambie un resultado va aca, no en el codigo.
+
+# Variedad objetivo y competidoras, con las marcas regionales de Wiktionary
+# (formato kaikki). Cada acepcion se busca en tres lugares: tags, categorias
+# ("Rioplatense Spanish") y raw_tags de texto libre ("in Spain"). Cambiarlas
+# permite correr el pipeline para otro pais.
+variedades:
+  objetivo:
+    tags: [Argentina, Rioplatense, Lunfardo, Northwestern-Argentina]
+    categorias: [Argentine Spanish, Rioplatense Spanish, Buenos Aires Spanish]
+    texto: [Argentina, Rioplatense]
+  competidoras:
+    tags: [Spain, Mexico]
+    categorias: [Peninsular Spanish, Northern Peninsular Spanish,
+                 Southern Peninsular Spanish, Madrilenian Spanish, Mexican Spanish]
+    texto: [Spain, Mexico]
+  # Regiones amplias que incluyen a Buenos Aires: una acepcion marcada solo
+  # asi se asume usada aca (torta = cake, "South America").
+  amplias:
+    tags: [Latin-America, South-America]
+    categorias: [Latin American Spanish, South American Spanish,
+                 Southern Cone Spanish, Cono Sur Spanish]
+    texto: [Latin America, South America]
+  # Categorias "X Spanish" que no son una variedad regional.
+  categorias_no_regionales: [Regional Spanish, Early Modern Spanish,
+                             Spanish terms borrowed back into Spanish]
+
+# Las mismas marcas en el Wikcionario en espanol, que las escribe distinto:
+# tags como Río-de-la-Plata o Lunfardo, raw_tags como "lunfardismo" y
+# categorias "ES:Argentina". Los tags de otras regiones (Chile, Andalusia)
+# cuentan como "otra"; las categorias ES: solo cuentan si estan listadas aca,
+# porque tambien las hay tematicas (ES:Ríos).
+variedades_wikcionario:
+  objetivo:
+    tags: [Argentina, Río-de-la-Plata, Lunfardo, Northern-Argentina,
+           "La Rioja (Argentina)", Chubut]
+    categorias: ["ES:Argentina", "ES:Río de la Plata", "ES:Lunfardo",
+                 "ES:Córdoba (Argentina)", "ES:Norte de Argentina"]
+    texto: [lunfard]
+  competidoras:
+    tags: [Spain, Mexico, Mexico-City]
+    categorias: ["ES:España", "ES:México", "ES:México DF", "ES:Ciudad de México"]
+    texto: []
+  amplias:
+    tags: [America, South-America, South-Cone]
+    categorias: []
+    texto: []
+  categorias_no_regionales: []
+  prefijos_no_regionales: ["ES:"]
+
+http:
+  # Identificacion del cliente en cada pedido. Sin datos personales.
+  user_agent: "LunfaBench/0.1 (proyecto academico, ITBA; https://github.com/vgarfi/nlp-LunfaBench)"
+  pausa_segundos: 1.0  # minimo 1 s entre pedidos al mismo sitio
+  timeout_segundos: 30
+  reintentos: 4
+
+diccionario_argentino:
+  base_url: "https://www.diccionarioargentino.com"
+  letras: "abcdefghijklmnopqrstuvwxyz"
+
+kaikki:
+  # Diccionario de espanol extraido del Wiktionary en ingles (glosas en ingles).
+  url: "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl"
+
+wikcionario:
+  # Wikcionario en espanol, extraido por wiktextract (glosas en espanol).
+  url: "https://kaikki.org/dictionary/downloads/es/es-extract.jsonl.gz"
+
+etapa01_candidatos:
+  # Un termino del diccionario colaborativo entra si su mejor definicion
+  # tiene al menos este puntaje (votos netos). Los de kaikki no tienen votos.
+  # Decidido el 23/09/2026 viendo la letra c: con 3 quedan 412 de 516.
+  puntaje_minimo: 3
+  # Maximo de palabras por termino. Decidido el 23/09/2026: solo palabras
+  # sueltas (en la letra c eran 497 de 524 candidatos).
+  max_palabras: 1
+  # La regla de nombres propios marca siempre; descarta solo si esto es true.
+  # En la prueba con la letra c solo tuvo falsos positivos (cusco = perro
+  # chico, canadá = "en cana", corte rocho).
+  descartar_nombres_propios: false
+  # Plurales, variantes graficas y gerundios se fusionan en su lema si el lema
+  # tambien es candidato (curros -> curro, chamullar -> chamuyar). Los pares
+  # de genero quedan separados (chongo y chonga).
+  fusionar_variantes: true
+  # Diminutivos y aumentativos quedan separados: suelen estar lexicalizados
+  # (un cachito = un poco).
+  fusionar_diminutivos: false
+  # Veto a la fusion de variantes graficas: si las dos palabras tienen
+  # definiciones en el diccionario colaborativo, alguna tiene que compartir al
+  # menos esta proporcion de palabras (facho = fascista no se fusiona con
+  # facha = pinta).
+  similitud_definiciones: 0.34
+  # Partes de la oracion de kaikki que no son lexico comun.
+  pos_excluidas: [name, character, symbol, abbrev, prefix, suffix, infix, interfix, affix, punct]
+
+etapa02_capa:
+  # Acepciones que no cuentan como uso actual, salvo que sean de la variedad
+  # objetivo: el lunfardo desusado (mina = prostituta) es justo el del tango.
+  tags_ignorados: [obsolete, archaic, outdated]
+  # Dos glosas se consideran la misma acepcion si comparten al menos esta
+  # proporcion de palabras (Jaccard). Una competidora con la misma glosa que
+  # la objetivo no la vuelve falso amigo.
+  similitud_glosa: 0.5
+
+controles:
+  # Emparejamiento con cada falso amigo: Zipf de wordfreq a +-0,25 y largo a
+  # +-1 letra. Se prefiere la misma categoria gramatical.
+  tolerancia_zipf: 0.25
+  tolerancia_largo: 1
+  # Hasta cuantos controles se guardan por falso amigo (algunos se van a caer
+  # en la etapa 03 si no aparecen en letras).
+  por_falso_amigo: 3
+  largo_minimo: 3
+  pos_validas: [noun, verb, adj, adv]
+  # Un control es espanol general y neutro: fuera la jerga y los insultos.
+  tags_excluidos: [vulgar, derogatory, offensive, slang]
+  # Acepciones tecnicas que no cuentan (adenina, ascitis, barita): el control
+  # tiene que ser una palabra de todos los dias, como los falsos amigos.
+  temas_tecnicos: [sciences, natural-sciences, physical-sciences, human-sciences,
+                   medicine, pathology, pharmacology, anatomy, biology, microbiology,
+                   biochemistry, genetics, chemistry, organic-chemistry, physics,
+                   mathematics, geometry, algebra, statistics, engineering,
+                   electrical-engineering, electromagnetism, electronics, computing,
+                   programming, geology, mineralogy, astronomy, botany, zoology,
+                   taxonomy, linguistics, grammar, phonetics, phonology, rhetoric,
+                   law, heraldry, nautical]
+
+wikidata:
+  endpoint: "https://query.wikidata.org/sparql"
+  timeout_segundos: 120
+  # Gran Buenos Aires: sus partes (P527) son la ciudad y los 24 partidos.
+  area_metropolitana: Q998798
+  # Ocupaciones musicales: musico y cantante con todas sus subclases, mas
+  # compositor, letrista, compositor de canciones, rapero, DJ y productor.
+  ocupaciones_raiz: [Q639669, Q177220]
+  ocupaciones_extra: [Q36834, Q822146, Q753110, Q2252262, Q130857, Q183945]
+  # Grupo musical (y sus subclases: banda, orquesta, duo...).
+  clase_grupo: Q215380
+
+musicbrainz:
+  base_url: "https://musicbrainz.org/ws/2"
+  # Buenos Aires, Argentina. Ojo: hay otra "Buenos Aires" en Costa Rica.
+  area_ciudad: "2bd8607d-56fe-4fa1-96e3-3badd6a98588"
+
+etapa03a_artistas:
+  # Artistas que entran aunque la regla de origen los deje afuera.
+  artistas_extra:
+    - {nombre: Carlos Gardel, wikidata: Q229613,
+       musicbrainz: bb54817c-6829-4ccc-bc58-030abb85c583}
+
+etapa03b_contextos:
+  # Cuantas canciones se listan por artista en Genius (las mas populares).
+  canciones_por_artista: 10
+  # Muestra piloto para el EDA de la primera entrega: hasta N artistas por
+  # epoca (decada de nacimiento o formacion), con semilla fija. Para la
+  # corrida completa, borrar piloto_artistas_por_epoca.
+  piloto_artistas_por_epoca: 20
+  cortes_de_epoca: [1930, 1970]
+  semilla: 13
+  # Titulos que no son la version de estudio de la cancion.
+  excluir_titulos: ["(Remix)", "(Live)", "(En vivo)", "(En Vivo)", "(Remastered)"]
+  # Topes de canciones que se bajan: por artista (las mas populares) y por
+  # decada segun el anio de Genius, para que el urbano reciente no domine.
+  # En la muestra piloto, 3 por artista. Se pueden subir despues: el paso de
+  # letras saltea lo ya procesado.
+  max_canciones_por_artista: 3
+  max_canciones_por_decada: 250
+  max_canciones_sin_anio: 400
+  # Fragmentos: hasta 25 palabras (tope del proyecto), una linea de contexto
+  # antes y despues de la del termino, y un minimo para que tenga sentido.
+  max_palabras_fragmento: 25
+  min_palabras_fragmento: 5
+  lineas_de_contexto: 1
+  # Sin tildes, "se" y "sé" son la misma palabra: para las mas frecuentes del
+  # espanol la busqueda exige la tilde exacta.
+  frecuentes_con_tilde_exacta: 300
+  # Tope de fragmentos por termino (saber, un candidato, aparece en casi todas
+  # las letras).
+  max_fragmentos_por_termino: 100
+
+etapa04_curado:
+  # Conjunto curado del informe: 90 items.
+  cuotas: {falso_amigo: 40, lunfardo_sin_homonimo: 20, polisemico_interno: 15,
+           control_negativo: 15}
+  # Afuera las N palabras mas frecuentes del espanol (no, dar, hacer): son
+  # candidatas por algun uso de jerga, pero dan items malos.
+  excluir_frecuentes: 500
+  min_palabras_contexto: 8
+  semilla: 13

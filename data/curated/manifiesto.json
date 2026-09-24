@@ -1,0 +1,217 @@
+{
+  "congelado": "2026-09-24T12:00:52+00:00",
+  "descripcion": "Los 90 terminos del conjunto curado (etapa 04), sorteados por capa con semilla entre los que tienen fragmentos de letra. Las etapas 01 a 02b corrieron completas; la 03b es una muestra piloto.",
+  "fuentes": {
+    "diccionarioargentino.com": {
+      "descargado": "2026-09-23",
+      "paginas": 3525,
+      "definiciones": 7329
+    },
+    "kaikki (Wiktionary en ingles)": {
+      "url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "descargado": "2026-09-23T21:51:35+00:00",
+      "last_modified": "Sun, 20 Sep 2026 04:43:05 GMT",
+      "bytes": 1037505045
+    },
+    "Wikcionario (kaikki es-extract)": {
+      "url": "https://kaikki.org/dictionary/downloads/es/es-extract.jsonl.gz",
+      "descargado": "2026-09-23T22:35:00+00:00",
+      "last_modified": "Sun, 20 Sep 2026 02:22:48 GMT",
+      "bytes": 99931931
+    },
+    "wikidata": {
+      "consultado": "2026-09-23/24",
+      "endpoint": "https://query.wikidata.org/sparql"
+    },
+    "musicbrainz": {
+      "consultado": "2026-09-23/24"
+    },
+    "genius": {
+      "consultado": "2026-09-24",
+      "nota": "solo metadatos en cache; las letras no se guardan"
+    },
+    "wordfreq": {
+      "lista": "es, best"
+    }
+  },
+  "semillas": {
+    "piloto_de_artistas": 13,
+    "seleccion": 13
+  },
+  "cuotas_del_curado": {
+    "falso_amigo": 40,
+    "lunfardo_sin_homonimo": 20,
+    "polisemico_interno": 15,
+    "control_negativo": 15
+  },
+  "terminos": 90,
+  "embudo": {
+    "diccionario_terminos": 3441,
+    "diccionario_definiciones": 7329,
+    "kaikki_lemas_objetivo": 1022,
+    "wikcionario_lemas_objetivo": 3396,
+    "candidatos_etapa01": 4650,
+    "por_capa_etapa02": {
+      "falso_amigo": 579,
+      "polisemico_interno": 1463,
+      "lunfardo_sin_homonimo": 1859,
+      "sin_clasificar": 749
+    },
+    "controles_emparejados": 541
+  },
+  "piloto_de_letras": {
+    "artistas": 56,
+    "canciones": 143,
+    "descartadas_por_idioma": 29,
+    "canciones_en_espanol": 114,
+    "artistas_en_espanol": 46
+  },
+  "seleccion": {
+    "fecha": "2026-09-24T12:00:47+00:00",
+    "semilla": 13,
+    "elegibles": {
+      "falso_amigo": 90,
+      "polisemico_interno": 220,
+      "lunfardo_sin_homonimo": 68,
+      "control_negativo": 138
+    },
+    "seleccionados": {
+      "lunfardo_sin_homonimo": 20,
+      "control_negativo": 15,
+      "falso_amigo": 40,
+      "polisemico_interno": 15
+    },
+    "reemplazados": [
+      {
+        "id": "CUR-003",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "noviar",
+        "forma_en_letra": [
+          "novio"
+        ],
+        "entra": "chamuyo"
+      },
+      {
+        "id": "CUR-015",
+        "capa": "falso_amigo",
+        "sale": "papa",
+        "forma_en_letra": [
+          "papá"
+        ],
+        "entra": "papa"
+      },
+      {
+        "id": "CUR-026",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "promesar",
+        "forma_en_letra": [
+          "promesas"
+        ],
+        "entra": "viste"
+      },
+      {
+        "id": "CUR-028",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "temar",
+        "forma_en_letra": [
+          "temen",
+          "temo"
+        ],
+        "entra": "gorrión"
+      },
+      {
+        "id": "CUR-033",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "manyar",
+        "forma_en_letra": [
+          "manya"
+        ],
+        "entra": "birra"
+      },
+      {
+        "id": "CUR-038",
+        "capa": "falso_amigo",
+        "sale": "pato",
+        "forma_en_letra": [
+          "pata"
+        ],
+        "entra": "taco"
+      },
+      {
+        "id": "CUR-048",
+        "capa": "falso_amigo",
+        "sale": "mama",
+        "forma_en_letra": [
+          "mamá"
+        ],
+        "entra": "mama"
+      },
+      {
+        "id": "CUR-053",
+        "capa": "control_negativo",
+        "sale": "mediar",
+        "forma_en_letra": [
+          "media",
+          "medio"
+        ],
+        "entra": "paciencia"
+      },
+      {
+        "id": "CUR-054",
+        "capa": "falso_amigo",
+        "sale": "pelar",
+        "forma_en_letra": [
+          "pelo"
+        ],
+        "entra": "pelar"
+      },
+      {
+        "id": "CUR-055",
+        "capa": "falso_amigo",
+        "sale": "ligar",
+        "forma_en_letra": [
+          "liga"
+        ],
+        "entra": "vacío"
+      },
+      {
+        "id": "CUR-066",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "bebe",
+        "forma_en_letra": [
+          "bebé"
+        ],
+        "entra": "quiebre"
+      },
+      {
+        "id": "CUR-086",
+        "capa": "falso_amigo",
+        "sale": "clavar",
+        "forma_en_letra": [
+          "clavado",
+          "clavo"
+        ],
+        "entra": "gato"
+      }
+    ],
+    "decadas_de_los_fragmentos": {
+      "1910": 1,
+      "1930": 6,
+      "1950": 10,
+      "1960": 11,
+      "1970": 7,
+      "1980": 5,
+      "1990": 4,
+      "2000": 9,
+      "2010": 12,
+      "2020": 15,
+      "None": 10
+    }
+  },
+  "archivos": {
+    "curado.jsonl": "4933b45d33ba5fb6cac83cdf1de35fe063b0af58d68b99a3a166d31b586b85c6",
+    "config.yaml": "88bb14a77d4dc35f1bc7f0c92034149cdf1b673bcdf905f81b7329d71e19bfde",
+    "data/annotation/curado_planilla.xlsx": "837ee95923d45a4889b44c4c913e31794d7bf0e1e36c0427e76a507dc4b6d328",
+    "data/annotation/curado_clave.csv": "33b69496ed574346f361e0c907876f22585c81b4a0925e12c6e60877f05279e7"
+  }
+}
