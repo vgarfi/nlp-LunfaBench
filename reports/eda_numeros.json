@@ -1,0 +1,261 @@
+{
+  "fecha": "2026-09-24T12:00:56+00:00",
+  "piloto_de_letras": {
+    "artistas": 56,
+    "canciones": 143,
+    "descartadas_por_idioma": 29,
+    "canciones_en_espanol": 114,
+    "artistas_en_espanol": 46
+  },
+  "reemplazados_en_la_seleccion": [
+    {
+      "id": "CUR-003",
+      "capa": "lunfardo_sin_homonimo",
+      "sale": "noviar",
+      "forma_en_letra": [
+        "novio"
+      ],
+      "entra": "chamuyo"
+    },
+    {
+      "id": "CUR-015",
+      "capa": "falso_amigo",
+      "sale": "papa",
+      "forma_en_letra": [
+        "papá"
+      ],
+      "entra": "papa"
+    },
+    {
+      "id": "CUR-026",
+      "capa": "lunfardo_sin_homonimo",
+      "sale": "promesar",
+      "forma_en_letra": [
+        "promesas"
+      ],
+      "entra": "viste"
+    },
+    {
+      "id": "CUR-028",
+      "capa": "lunfardo_sin_homonimo",
+      "sale": "temar",
+      "forma_en_letra": [
+        "temen",
+        "temo"
+      ],
+      "entra": "gorrión"
+    },
+    {
+      "id": "CUR-033",
+      "capa": "lunfardo_sin_homonimo",
+      "sale": "manyar",
+      "forma_en_letra": [
+        "manya"
+      ],
+      "entra": "birra"
+    },
+    {
+      "id": "CUR-038",
+      "capa": "falso_amigo",
+      "sale": "pato",
+      "forma_en_letra": [
+        "pata"
+      ],
+      "entra": "taco"
+    },
+    {
+      "id": "CUR-048",
+      "capa": "falso_amigo",
+      "sale": "mama",
+      "forma_en_letra": [
+        "mamá"
+      ],
+      "entra": "mama"
+    },
+    {
+      "id": "CUR-053",
+      "capa": "control_negativo",
+      "sale": "mediar",
+      "forma_en_letra": [
+        "media",
+        "medio"
+      ],
+      "entra": "paciencia"
+    },
+    {
+      "id": "CUR-054",
+      "capa": "falso_amigo",
+      "sale": "pelar",
+      "forma_en_letra": [
+        "pelo"
+      ],
+      "entra": "pelar"
+    },
+    {
+      "id": "CUR-055",
+      "capa": "falso_amigo",
+      "sale": "ligar",
+      "forma_en_letra": [
+        "liga"
+      ],
+      "entra": "vacío"
+    },
+    {
+      "id": "CUR-066",
+      "capa": "lunfardo_sin_homonimo",
+      "sale": "bebe",
+      "forma_en_letra": [
+        "bebé"
+      ],
+      "entra": "quiebre"
+    },
+    {
+      "id": "CUR-086",
+      "capa": "falso_amigo",
+      "sale": "clavar",
+      "forma_en_letra": [
+        "clavado",
+        "clavo"
+      ],
+      "entra": "gato"
+    }
+  ],
+  "terminos": 90,
+  "terminos_con_un_fragmento": 7,
+  "a_y_b_de_la_misma_cancion": 2,
+  "fragmentos": 173,
+  "fragmentos_flexionados": 68,
+  "fragmentos_con_otra_palabra": 5,
+  "largo_fragmento": {
+    "mediana": 20,
+    "min": 8,
+    "max": 25
+  },
+  "canciones": 65,
+  "artistas": 38,
+  "fragmentos_a_con_anio": 80,
+  "rango_de_decadas": [
+    1910,
+    2020
+  ],
+  "correlacion_zipf_subwords": -0.86,
+  "fuentes_de_los_75_rioplatenses": {
+    "diccionario_argentino": 42,
+    "kaikki": 24,
+    "wikcionario": 50
+  },
+  "por_capa": {
+    "falso_amigo": {
+      "terminos": 40,
+      "zipf_mediana": 4.29,
+      "en_wordfreq": 40,
+      "largo_mediana": 5.0,
+      "subwords_robertuito": 1.18,
+      "subwords_beto": 1.32,
+      "subwords_roberta_bne": 1.35,
+      "subwords_en_letra_robertuito": 1.27,
+      "subwords_en_letra_beto": 1.52,
+      "subwords_en_letra_roberta_bne": 1.48,
+      "un_subword_en_los_tres": 27,
+      "con_fragmento_b": 39,
+      "fragmentos_a_por_decada": {
+        "1930": 3,
+        "1950": 5,
+        "1960": 4,
+        "1970": 4,
+        "1980": 2,
+        "1990": 1,
+        "2000": 2,
+        "2010": 5,
+        "2020": 9,
+        "sin anio": 5
+      },
+      "fuentes": {
+        "diccionario_argentino": 25,
+        "kaikki": 11,
+        "wikcionario": 27
+      }
+    },
+    "lunfardo_sin_homonimo": {
+      "terminos": 20,
+      "zipf_mediana": 3.29,
+      "en_wordfreq": 18,
+      "largo_mediana": 5.5,
+      "subwords_robertuito": 1.7,
+      "subwords_beto": 2,
+      "subwords_roberta_bne": 1.8,
+      "subwords_en_letra_robertuito": 1.7,
+      "subwords_en_letra_beto": 1.95,
+      "subwords_en_letra_roberta_bne": 1.8,
+      "un_subword_en_los_tres": 6,
+      "con_fragmento_b": 14,
+      "fragmentos_a_por_decada": {
+        "1910": 1,
+        "1950": 3,
+        "1960": 3,
+        "1970": 3,
+        "1980": 1,
+        "2000": 2,
+        "2010": 2,
+        "2020": 2,
+        "sin anio": 3
+      },
+      "fuentes": {
+        "diccionario_argentino": 12,
+        "kaikki": 9,
+        "wikcionario": 11
+      }
+    },
+    "polisemico_interno": {
+      "terminos": 15,
+      "zipf_mediana": 4.29,
+      "en_wordfreq": 15,
+      "largo_mediana": 6,
+      "subwords_robertuito": 1.13,
+      "subwords_beto": 1.13,
+      "subwords_roberta_bne": 1.13,
+      "subwords_en_letra_robertuito": 1.27,
+      "subwords_en_letra_beto": 1.47,
+      "subwords_en_letra_roberta_bne": 1.4,
+      "un_subword_en_los_tres": 12,
+      "con_fragmento_b": 15,
+      "fragmentos_a_por_decada": {
+        "1960": 4,
+        "1980": 1,
+        "1990": 3,
+        "2000": 4,
+        "2010": 2,
+        "2020": 1
+      },
+      "fuentes": {
+        "wikcionario": 12,
+        "diccionario_argentino": 5,
+        "kaikki": 4
+      }
+    },
+    "control_negativo": {
+      "terminos": 15,
+      "zipf_mediana": 4.4,
+      "en_wordfreq": 15,
+      "largo_mediana": 5,
+      "subwords_robertuito": 1.13,
+      "subwords_beto": 1.13,
+      "subwords_roberta_bne": 1.13,
+      "subwords_en_letra_robertuito": 1.07,
+      "subwords_en_letra_beto": 1.13,
+      "subwords_en_letra_roberta_bne": 1.13,
+      "un_subword_en_los_tres": 13,
+      "con_fragmento_b": 15,
+      "fragmentos_a_por_decada": {
+        "1930": 3,
+        "1950": 2,
+        "1980": 1,
+        "2000": 1,
+        "2010": 3,
+        "2020": 3,
+        "sin anio": 2
+      },
+      "fuentes": {}
+    }
+  }
+}
