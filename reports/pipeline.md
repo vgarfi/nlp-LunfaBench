@@ -133,7 +133,8 @@ El detalle está en el manifiesto, en `seleccion.reemplazados`.
 
 - la primera definición del diccionario colaborativo, salteando las que solo
   anuncian acepciones ("Dos sentidos", en *chamuyo*);
-- si no hay, la de Wikcionario;
-- si tampoco, la de Wiktionary.
+- si no hay, la de Wikcionario.
 
-Para los controles, la acepción general.
+Para los controles, la acepción general. Todas las acepciones del conjunto
+están en español: las glosas en inglés de kaikki se usan para clasificar la
+capa (§2), nunca como definición de referencia.

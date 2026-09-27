@@ -220,3 +220,10 @@ data/raw/
 
 # Intermediate pipeline outputs: regenerated from data/raw/
 data/interim/
+
+# node_modules del generador del informe en docx
+reports/*.js
+reports/*.docx
+reports/package*
+reports/node*
+

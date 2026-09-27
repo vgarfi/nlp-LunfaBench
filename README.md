@@ -9,7 +9,8 @@ sin homónimo, 15 polisémicos y 15 controles), cada uno con fragmentos reales
 de letras. Esos 90 quedan congelados en `data/curated/`.
 
 Cómo se armaron: `reports/pipeline.md`. Análisis exploratorio:
-`reports/eda.md`.
+`reports/eda.md`. El informe de la primera entrega, en
+`reports/Informe_primera_entrega.docx`.
 
 ## Estructura
 
@@ -45,13 +46,12 @@ data/
   raw/                   descargas y cachés de las fuentes (1,1 GB, no va a git)
   interim/               salidas intermedias y números de cada etapa (no va a git)
 
-data/lunfabench_terminos_v0.csv, data/busquedas.csv, data/fragments/, scripts/
-                       primera versión, armada a mano; el pipeline no la usa
-
 reports/
   pipeline.md            cómo se armaron los 90: las reglas de cada etapa
   eda.md, eda_numeros.json  análisis exploratorio de los 90
   figura_curado.png      Figura 1 del informe
+  Informe_primera_entrega.docx  el informe de la primera entrega
+  informe_primera_entrega.js    script que genera ese .docx
 ```
 
 ## El corpus congelado
@@ -71,9 +71,9 @@ Cada término de `curado.jsonl` tiene:
   año y la forma en que aparece el término en la letra;
 - **frecuencia y subwords:** el Zipf y los subwords en cada tokenizador;
 - **procedencia:** las definiciones del diccionario colaborativo y las
-  acepciones de Wiktionary y Wikcionario con sus IDs. Para los controles, los
-  falsos amigos candidatos con los que se emparejan (no siempre uno de los
-  40).
+  acepciones del Wikcionario con sus IDs. Para los controles, los falsos amigos
+  candidatos con los que se emparejan (no siempre uno de los 40). Todas las
+  acepciones del conjunto están en español.
 
 El manifiesto guarda:
 - versión y fecha de cada fuente;

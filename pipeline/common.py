@@ -46,7 +46,8 @@ def now_iso():
 # original form.
 
 # Genius (and sometimes user contributions) contains stray Cyrillic
-# homoglyphs. Same map as scripts/genius_scraper.py.
+# homoglyphs. A single one of these breaks subword tokenisation, which is
+# exactly what H4 measures, so they are normalised rather than dropped.
 HOMOGLYPHS = {
     "а": "a", "е": "e", "о": "o", "р": "p", "с": "c",
     "у": "y", "х": "x", "і": "i", "һ": "h", "Α": "A",
