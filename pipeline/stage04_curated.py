@@ -500,8 +500,16 @@ def evaluate(path, cfg):
     corpus = {f["id"]: f for f in common.read_jsonl(FROZEN)}
 
     def final(r, field):
-        """Final decision; if missing, the matching one or annotator 1's."""
-        return (r.get(f"{field}_final") or r.get(f"{field}_1") or "").strip()
+        """Adjudicated decision ("capa final" / "fragmento final")."""
+        return (r.get(f"{field}_final") or "").strip()
+
+    # Never fall back to one annotator: an empty or unknown final decision
+    # would silently become the group's answer.
+    pending = sorted(id_ for id_, r in annotated.items()
+                     if final(r, "capa") not in LAYER_OPTIONS or final(r, "fragmento") not in ("A", "B"))
+    if pending:
+        raise SystemExit(f"{len(pending)} rows without a valid «capa final» or «fragmento final»: "
+                         f"{', '.join(pending)}. Adjudicate them in the sheet before evaluating.")
 
     proposed_vs_group, between_layer, between_fragment = [], [], []
     for id_, r in annotated.items():
