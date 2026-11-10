@@ -1,0 +1,46 @@
+{
+  "anotados": 116,
+  "tabla2_propuesta_vs_grupo": {
+    "espanol_general": {
+      "falso_amigo": 0,
+      "polisemico_interno": 0,
+      "lunfardo_sin_homonimo": 0,
+      "espanol_general": 15
+    },
+    "falso_amigo": {
+      "falso_amigo": 42,
+      "polisemico_interno": 20,
+      "lunfardo_sin_homonimo": 2,
+      "espanol_general": 1
+    },
+    "lunfardo_sin_homonimo": {
+      "falso_amigo": 0,
+      "polisemico_interno": 2,
+      "lunfardo_sin_homonimo": 18,
+      "espanol_general": 1
+    },
+    "polisemico_interno": {
+      "falso_amigo": 0,
+      "polisemico_interno": 15,
+      "lunfardo_sin_homonimo": 0,
+      "espanol_general": 0
+    }
+  },
+  "tabla2_acuerdo": 0.7758620689655172,
+  "tabla2_kappa": 0.6823925863521483,
+  "entre_anotadores_capa": {
+    "pares": 116,
+    "kappa": 0.9040529363110009
+  },
+  "entre_anotadores_fragmento": {
+    "pares": 116,
+    "kappa": 1.0
+  },
+  "curado_por_capa": {
+    "polisemico_interno": 37,
+    "control_negativo": 17,
+    "lunfardo_sin_homonimo": 20,
+    "falso_amigo": 42
+  },
+  "falsos_amigos_sin_acepcion_b": []
+}

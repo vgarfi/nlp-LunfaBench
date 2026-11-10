@@ -170,8 +170,8 @@ etapa03b_contextos:
   max_fragmentos_por_termino: 100
 
 etapa04_curado:
-  # Cuotas del sorteo original (90 items). El conjunto final tiene 117: el grupo
-  # agrego 27 terminos a mano en la revision (ver data/curated/curado.jsonl).
+  # Cuotas del sorteo original (90 items). El conjunto final tiene 116: el grupo
+  # agrego 26 terminos a mano en la revision (ver data/curated/curado.jsonl).
   cuotas: {falso_amigo: 40, lunfardo_sin_homonimo: 20, polisemico_interno: 15,
            control_negativo: 15}
   # Afuera las N palabras mas frecuentes del espanol (no, dar, hacer): son

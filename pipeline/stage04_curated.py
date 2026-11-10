@@ -51,9 +51,13 @@ from pipeline import stage03b_contexts as s03b
 ANNOTATION_DIR = s02.ANNOTATION_DIR
 SHEET = os.path.join(ANNOTATION_DIR, "curado_planilla.xlsx")
 KEY_FILE = os.path.join(ANNOTATION_DIR, "curado_clave.csv")
-# The group's check of each false friend against the DLE: the competing sense
-# of Spain or Mexico (option b of the item) comes from here.
+# The group's check of each false friend against the DLE (kept as a reference
+# and for its «evaluacion» column).
 DLE_FILE = os.path.join(ANNOTATION_DIR, "lunfabench_dle_referencia.csv")
+# The competing sense of Spain or Mexico (option b of the item) comes from the
+# sheet («acepción competidora 1» and «2»). Where the two annotators wrote
+# different senses, this file says which one the group kept (1 or 2).
+COMPETING_CHOICE_FILE = os.path.join(ANNOTATION_DIR, "acepcion_competidora_elegida.csv")
 SELECTION = os.path.join(common.DATA_INTERIM, "curado_seleccion.jsonl")
 # The evaluation reads the frozen corpus (python -m pipeline.freeze), so it
 # does not depend on the intermediate outputs.
@@ -515,6 +519,21 @@ def evaluate(path, cfg):
         raise SystemExit(f"{len(pending)} rows without a valid «capa final» or «fragmento final»: "
                          f"{', '.join(pending)}. Adjudicate them in the sheet before evaluating.")
 
+    chosen = {r["id"]: r["anotador_elegido"].strip()
+              for r in csv.DictReader(open(COMPETING_CHOICE_FILE, encoding="utf-8"))}
+
+    def competing_sense(id_, r):
+        """Text of annotator 1 and 2 when they agree or only one wrote it; the
+        chosen one when they differ."""
+        a = (r.get("acepcion_competidora_1") or "").strip()
+        b = (r.get("acepcion_competidora_2") or "").strip()
+        if not a or not b or a == b:
+            return a or b
+        if chosen.get(id_) not in ("1", "2"):
+            raise SystemExit(f"{id_}: the annotators wrote different competing senses; "
+                             f"choose 1 or 2 in {os.path.relpath(COMPETING_CHOICE_FILE, common.REPO_ROOT)}.")
+        return a if chosen[id_] == "1" else b
+
     proposed_vs_group, between_layer, between_fragment = [], [], []
     for id_, r in annotated.items():
         if final(r, "capa"):
@@ -552,8 +571,8 @@ def evaluate(path, cfg):
             "source": {**x["source"], "planilla_id": id_},
             "reference_sense": {"text": f["acepcion_de_referencia"],
                                 "source": f["fuente_acepcion"]},
-            "competing_sense": {"text": dle.get(id_, {}).get("acepcion_competidora_esp_mex", "").strip(),
-                                "review": dle.get(id_, {}).get("evaluacion", "").strip()},
+            "competing_sense": {"text": competing_sense(id_, r),
+                                "dle_review": dle.get(id_, {}).get("evaluacion", "").strip()},
             "options": {"a_correcta": "", "b_otra_variedad": "", "c_plausible": "",
                         "d_incorrecta": ""},
             "pipeline": {"stage": "04_curado", "validated_sense": bool(final(r, "fragmento")),
@@ -565,9 +584,12 @@ def evaluate(path, cfg):
     common.write_jsonl(ANNOTATED, items)
     result["curado_por_capa"] = dict(Counter(x["layer"] for x in items))
     # False friends still without a competing sense: option b cannot be built.
+    # «ninguna encontrada» means the search found nothing.
     result["falsos_amigos_sin_acepcion_b"] = sorted(
         x["source"]["planilla_id"] for x in items
-        if x["layer"] == "falso_amigo" and not x["competing_sense"]["text"])
+        if x["layer"] == "falso_amigo"
+        and (not x["competing_sense"]["text"]
+             or x["competing_sense"]["text"].lower().startswith("ninguna")))
     with open(NUMBERS, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     print(json.dumps(result, ensure_ascii=False, indent=2))

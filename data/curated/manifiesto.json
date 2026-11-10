@@ -1,263 +1,326 @@
 {
- "congelado": "2026-09-24T12:00:52+00:00",
- "descripcion": "Los 90 terminos del conjunto curado (etapa 04), sorteados por capa con semilla entre los que tienen fragmentos de letra. Las etapas 01 a 02b corrieron completas; la 03b es una muestra piloto.",
- "fuentes": {
-  "diccionarioargentino.com": {
-   "descargado": "2026-09-23",
-   "paginas": 3525,
-   "definiciones": 7329
+  "congelado": "2026-09-24T12:00:52+00:00",
+  "descripcion": "El conjunto curado: 116 terminos. 90 salen del sorteo de la etapa 04 (por capa, con semilla, entre los que tienen fragmentos de letra); el grupo agrego 26 a mano en la revision del 2026-11-10. Las etapas 01 a 02b corrieron completas; la 03b es una muestra piloto.",
+  "fuentes": {
+    "diccionarioargentino.com": {
+      "descargado": "2026-09-23",
+      "paginas": 3525,
+      "definiciones": 7329
+    },
+    "kaikki (Wiktionary en ingles)": {
+      "url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "descargado": "2026-09-23T21:51:35+00:00",
+      "last_modified": "Sun, 20 Sep 2026 04:43:05 GMT",
+      "bytes": 1037505045
+    },
+    "Wikcionario (kaikki es-extract)": {
+      "url": "https://kaikki.org/dictionary/downloads/es/es-extract.jsonl.gz",
+      "descargado": "2026-09-23T22:35:00+00:00",
+      "last_modified": "Sun, 20 Sep 2026 02:22:48 GMT",
+      "bytes": 99931931
+    },
+    "wikidata": {
+      "consultado": "2026-09-23/24",
+      "endpoint": "https://query.wikidata.org/sparql"
+    },
+    "musicbrainz": {
+      "consultado": "2026-09-23/24"
+    },
+    "genius": {
+      "consultado": "2026-09-24",
+      "nota": "solo metadatos en cache; las letras no se guardan"
+    },
+    "wordfreq": {
+      "lista": "es, best"
+    }
   },
-  "kaikki (Wiktionary en ingles)": {
-   "url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
-   "descargado": "2026-09-23T21:51:35+00:00",
-   "last_modified": "Sun, 20 Sep 2026 04:43:05 GMT",
-   "bytes": 1037505045
+  "semillas": {
+    "piloto_de_artistas": 13,
+    "seleccion": 13
   },
-  "Wikcionario (kaikki es-extract)": {
-   "url": "https://kaikki.org/dictionary/downloads/es/es-extract.jsonl.gz",
-   "descargado": "2026-09-23T22:35:00+00:00",
-   "last_modified": "Sun, 20 Sep 2026 02:22:48 GMT",
-   "bytes": 99931931
+  "cuotas_del_curado": {
+    "falso_amigo": 40,
+    "lunfardo_sin_homonimo": 20,
+    "polisemico_interno": 15,
+    "control_negativo": 15
   },
-  "wikidata": {
-   "consultado": "2026-09-23/24",
-   "endpoint": "https://query.wikidata.org/sparql"
+  "terminos": 116,
+  "embudo": {
+    "diccionario_terminos": 3441,
+    "diccionario_definiciones": 7329,
+    "kaikki_lemas_objetivo": 1022,
+    "wikcionario_lemas_objetivo": 3396,
+    "candidatos_etapa01": 4650,
+    "por_capa_etapa02": {
+      "falso_amigo": 579,
+      "polisemico_interno": 1463,
+      "lunfardo_sin_homonimo": 1859,
+      "sin_clasificar": 749
+    },
+    "controles_emparejados": 541
   },
-  "musicbrainz": {
-   "consultado": "2026-09-23/24"
+  "piloto_de_letras": {
+    "artistas": 56,
+    "canciones": 143,
+    "descartadas_por_idioma": 29,
+    "canciones_en_espanol": 114,
+    "artistas_en_espanol": 46
   },
-  "genius": {
-   "consultado": "2026-09-24",
-   "nota": "solo metadatos en cache; las letras no se guardan"
+  "seleccion": {
+    "fecha": "2026-09-24T12:00:47+00:00",
+    "semilla": 13,
+    "elegibles": {
+      "falso_amigo": 90,
+      "polisemico_interno": 220,
+      "lunfardo_sin_homonimo": 68,
+      "control_negativo": 138
+    },
+    "seleccionados": {
+      "lunfardo_sin_homonimo": 20,
+      "control_negativo": 15,
+      "falso_amigo": 40,
+      "polisemico_interno": 15
+    },
+    "reemplazados": [
+      {
+        "id": "CUR-003",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "noviar",
+        "forma_en_letra": [
+          "novio"
+        ],
+        "entra": "chamuyo"
+      },
+      {
+        "id": "CUR-015",
+        "capa": "falso_amigo",
+        "sale": "papa",
+        "forma_en_letra": [
+          "papá"
+        ],
+        "entra": "papa"
+      },
+      {
+        "id": "CUR-026",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "promesar",
+        "forma_en_letra": [
+          "promesas"
+        ],
+        "entra": "viste"
+      },
+      {
+        "id": "CUR-028",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "temar",
+        "forma_en_letra": [
+          "temen",
+          "temo"
+        ],
+        "entra": "gorrión"
+      },
+      {
+        "id": "CUR-033",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "manyar",
+        "forma_en_letra": [
+          "manya"
+        ],
+        "entra": "birra"
+      },
+      {
+        "id": "CUR-038",
+        "capa": "falso_amigo",
+        "sale": "pato",
+        "forma_en_letra": [
+          "pata"
+        ],
+        "entra": "taco"
+      },
+      {
+        "id": "CUR-048",
+        "capa": "falso_amigo",
+        "sale": "mama",
+        "forma_en_letra": [
+          "mamá"
+        ],
+        "entra": "mama"
+      },
+      {
+        "id": "CUR-053",
+        "capa": "control_negativo",
+        "sale": "mediar",
+        "forma_en_letra": [
+          "media",
+          "medio"
+        ],
+        "entra": "paciencia"
+      },
+      {
+        "id": "CUR-054",
+        "capa": "falso_amigo",
+        "sale": "pelar",
+        "forma_en_letra": [
+          "pelo"
+        ],
+        "entra": "pelar"
+      },
+      {
+        "id": "CUR-055",
+        "capa": "falso_amigo",
+        "sale": "ligar",
+        "forma_en_letra": [
+          "liga"
+        ],
+        "entra": "vacío"
+      },
+      {
+        "id": "CUR-066",
+        "capa": "lunfardo_sin_homonimo",
+        "sale": "bebe",
+        "forma_en_letra": [
+          "bebé"
+        ],
+        "entra": "quiebre"
+      },
+      {
+        "id": "CUR-086",
+        "capa": "falso_amigo",
+        "sale": "clavar",
+        "forma_en_letra": [
+          "clavado",
+          "clavo"
+        ],
+        "entra": "gato"
+      }
+    ],
+    "decadas_de_los_fragmentos": {
+      "1910": 1,
+      "1930": 6,
+      "1950": 10,
+      "1960": 11,
+      "1970": 7,
+      "1980": 5,
+      "1990": 4,
+      "2000": 9,
+      "2010": 12,
+      "2020": 15,
+      "None": 10
+    }
   },
-  "wordfreq": {
-   "lista": "es, best"
-  }
- },
- "semillas": {
-  "piloto_de_artistas": 13,
-  "seleccion": 13
- },
- "cuotas_del_curado": {
-  "falso_amigo": 40,
-  "lunfardo_sin_homonimo": 20,
-  "polisemico_interno": 15,
-  "control_negativo": 15
- },
- "terminos": 90,
- "embudo": {
-  "diccionario_terminos": 3441,
-  "diccionario_definiciones": 7329,
-  "kaikki_lemas_objetivo": 1022,
-  "wikcionario_lemas_objetivo": 3396,
-  "candidatos_etapa01": 4650,
-  "por_capa_etapa02": {
-   "falso_amigo": 579,
-   "polisemico_interno": 1463,
-   "lunfardo_sin_homonimo": 1859,
-   "sin_clasificar": 749
+  "archivos": {
+    "curado.jsonl": "0782abaa9802c183706ea79671c6dea001a59d551d5846aab1be662f85f9bbd0",
+    "config.yaml": "c6621f79fae81df88f5d42862adafc923d744e2b9c89a953d8d2b33843db41af",
+    "data/annotation/curado_planilla.xlsx": "6351ac04101fe9db9f192f8776412a05227045f1dd17f94a5e9b5407d2971543",
+    "data/annotation/curado_clave.csv": "1bd957f3a163a344d673d387a2aa1c2dc9e60cd9687da1e8c5bce63cbbf3d5e9",
+    "data/annotation/lunfabench_dle_referencia.csv": "466940dc1524a87827c56b698d27ccd5e84638326a7fc239a8e72ea4add8392b",
+    "data/annotation/acepcion_competidora_elegida.csv": "4df45781933f9ec2b6def3e3d11de0f3c23b2f323e39afd6894cbd4405b873c9"
   },
-  "controles_emparejados": 541
- },
- "piloto_de_letras": {
-  "artistas": 56,
-  "canciones": 143,
-  "descartadas_por_idioma": 29,
-  "canciones_en_espanol": 114,
-  "artistas_en_espanol": 46
- },
- "seleccion": {
-  "fecha": "2026-09-24T12:00:47+00:00",
-  "semilla": 13,
-  "elegibles": {
-   "falso_amigo": 90,
-   "polisemico_interno": 220,
-   "lunfardo_sin_homonimo": 68,
-   "control_negativo": 138
+  "revision_grupo": {
+    "fecha": "2026-09-27",
+    "descripcion": "Revision del grupo: se llenaron los 14 huecos de curado_clave, se reemplazaron terminos cuya acepcion no aparecia en ninguna letra, se pasaron todas las definiciones al espanol y se quito la procedencia kaikki.",
+    "terminos_reemplazados": [
+      "CUR-008",
+      "CUR-010",
+      "CUR-012",
+      "CUR-015",
+      "CUR-021",
+      "CUR-022",
+      "CUR-024",
+      "CUR-025",
+      "CUR-028",
+      "CUR-031",
+      "CUR-035",
+      "CUR-036",
+      "CUR-046",
+      "CUR-048",
+      "CUR-056",
+      "CUR-057",
+      "CUR-059",
+      "CUR-062",
+      "CUR-066",
+      "CUR-070",
+      "CUR-073",
+      "CUR-083"
+    ],
+    "definiciones_cambiadas": [
+      "CUR-026",
+      "CUR-027",
+      "CUR-038",
+      "CUR-068",
+      "CUR-072",
+      "CUR-089"
+    ],
+    "fragmentos_reemplazados": [
+      "CUR-011",
+      "CUR-018",
+      "CUR-033",
+      "CUR-038",
+      "CUR-045",
+      "CUR-069",
+      "CUR-075"
+    ],
+    "kaikki_removido": true
   },
-  "seleccionados": {
-   "lunfardo_sin_homonimo": 20,
-   "control_negativo": 15,
-   "falso_amigo": 40,
-   "polisemico_interno": 15
-  },
-  "reemplazados": [
-   {
-    "id": "CUR-003",
-    "capa": "lunfardo_sin_homonimo",
-    "sale": "noviar",
-    "forma_en_letra": [
-     "novio"
-    ],
-    "entra": "chamuyo"
-   },
-   {
-    "id": "CUR-015",
-    "capa": "falso_amigo",
-    "sale": "papa",
-    "forma_en_letra": [
-     "papá"
-    ],
-    "entra": "papa"
-   },
-   {
-    "id": "CUR-026",
-    "capa": "lunfardo_sin_homonimo",
-    "sale": "promesar",
-    "forma_en_letra": [
-     "promesas"
-    ],
-    "entra": "viste"
-   },
-   {
-    "id": "CUR-028",
-    "capa": "lunfardo_sin_homonimo",
-    "sale": "temar",
-    "forma_en_letra": [
-     "temen",
-     "temo"
-    ],
-    "entra": "gorrión"
-   },
-   {
-    "id": "CUR-033",
-    "capa": "lunfardo_sin_homonimo",
-    "sale": "manyar",
-    "forma_en_letra": [
-     "manya"
-    ],
-    "entra": "birra"
-   },
-   {
-    "id": "CUR-038",
-    "capa": "falso_amigo",
-    "sale": "pato",
-    "forma_en_letra": [
-     "pata"
-    ],
-    "entra": "taco"
-   },
-   {
-    "id": "CUR-048",
-    "capa": "falso_amigo",
-    "sale": "mama",
-    "forma_en_letra": [
-     "mamá"
-    ],
-    "entra": "mama"
-   },
-   {
-    "id": "CUR-053",
-    "capa": "control_negativo",
-    "sale": "mediar",
-    "forma_en_letra": [
-     "media",
-     "medio"
-    ],
-    "entra": "paciencia"
-   },
-   {
-    "id": "CUR-054",
-    "capa": "falso_amigo",
-    "sale": "pelar",
-    "forma_en_letra": [
-     "pelo"
-    ],
-    "entra": "pelar"
-   },
-   {
-    "id": "CUR-055",
-    "capa": "falso_amigo",
-    "sale": "ligar",
-    "forma_en_letra": [
-     "liga"
-    ],
-    "entra": "vacío"
-   },
-   {
-    "id": "CUR-066",
-    "capa": "lunfardo_sin_homonimo",
-    "sale": "bebe",
-    "forma_en_letra": [
-     "bebé"
-    ],
-    "entra": "quiebre"
-   },
-   {
-    "id": "CUR-086",
-    "capa": "falso_amigo",
-    "sale": "clavar",
-    "forma_en_letra": [
-     "clavado",
-     "clavo"
-    ],
-    "entra": "gato"
-   }
-  ],
-  "decadas_de_los_fragmentos": {
-   "1910": 1,
-   "1930": 6,
-   "1950": 10,
-   "1960": 11,
-   "1970": 7,
-   "1980": 5,
-   "1990": 4,
-   "2000": 9,
-   "2010": 12,
-   "2020": 15,
-   "None": 10
-  }
- },
- "archivos": {
-  "curado.jsonl": "2f0848e4f5d0481f1e02a2934c13db258a99dbd5f5676501680d50760a4e3740",
-  "config.yaml": "88bb14a77d4dc35f1bc7f0c92034149cdf1b673bcdf905f81b7329d71e19bfde",
-  "data/annotation/curado_planilla.xlsx": "778b02e528bd0a9410f6e72534623a20a111958969d7a27fd439c44e94eedb23",
-  "data/annotation/curado_clave.csv": "fb86d6749b06413232fdec14a07c10f4fdf812864a440f94088acd7630e9679a"
- },
- "revision_grupo": {
-  "fecha": "2026-09-27",
-  "descripcion": "Revision del grupo: se llenaron los 14 huecos de curado_clave, se reemplazaron terminos cuya acepcion no aparecia en ninguna letra, se pasaron todas las definiciones al espanol y se quito la procedencia kaikki.",
-  "terminos_reemplazados": [
-   "CUR-008",
-   "CUR-010",
-   "CUR-012",
-   "CUR-015",
-   "CUR-021",
-   "CUR-022",
-   "CUR-024",
-   "CUR-025",
-   "CUR-028",
-   "CUR-031",
-   "CUR-035",
-   "CUR-036",
-   "CUR-046",
-   "CUR-048",
-   "CUR-056",
-   "CUR-057",
-   "CUR-059",
-   "CUR-062",
-   "CUR-066",
-   "CUR-070",
-   "CUR-073",
-   "CUR-083"
-  ],
-  "definiciones_cambiadas": [
-   "CUR-026",
-   "CUR-027",
-   "CUR-038",
-   "CUR-068",
-   "CUR-072",
-   "CUR-089"
-  ],
-  "fragmentos_reemplazados": [
-   "CUR-011",
-   "CUR-018",
-   "CUR-033",
-   "CUR-038",
-   "CUR-045",
-   "CUR-069",
-   "CUR-075"
-  ],
-  "kaikki_removido": true
- }
+  "actualizado": "2026-11-10T20:16:12+00:00",
+  "cuotas_del_curado_nota": "Cuotas del sorteo original de 90; la capa final la decide la anotacion.",
+  "revisiones_posteriores": [
+    {
+      "fecha": "2026-11-09",
+      "descripcion": "Fragmentos buscados a mano para los terminos cuyo fragmento no usaba la acepcion rioplatense; sal pasa a salado. Tres terminos sin letra con ese sentido llevan un ejemplo de diccionario o una frase del grupo (context_source).",
+      "fragmentos_reemplazados": [
+        "CUR-054",
+        "CUR-055",
+        "CUR-058",
+        "CUR-067",
+        "CUR-072",
+        "CUR-076",
+        "CUR-080",
+        "CUR-090"
+      ],
+      "fragmentos_sin_cancion": {
+        "CUR-041": "ejemplo_diccionario",
+        "CUR-068": "ejemplo_diccionario",
+        "CUR-084": "redactado_grupo"
+      },
+      "terminos_cambiados": {
+        "CUR-072": "sal -> salado"
+      }
+    },
+    {
+      "fecha": "2026-11-10",
+      "descripcion": "El grupo agrego terminos a mano, sobre todo falsos amigos, porque la anotacion paso muchos de los propuestos a polisemicos. CUR-111 (rancho) se saco despues y los ids no se renumeraron. CUR-096 es gomas, solo en plural.",
+      "terminos_agregados": [
+        "CUR-091",
+        "CUR-092",
+        "CUR-093",
+        "CUR-094",
+        "CUR-095",
+        "CUR-096",
+        "CUR-097",
+        "CUR-098",
+        "CUR-099",
+        "CUR-100",
+        "CUR-101",
+        "CUR-102",
+        "CUR-103",
+        "CUR-104",
+        "CUR-105",
+        "CUR-106",
+        "CUR-107",
+        "CUR-108",
+        "CUR-109",
+        "CUR-110",
+        "CUR-112",
+        "CUR-113",
+        "CUR-114",
+        "CUR-115",
+        "CUR-116",
+        "CUR-117"
+      ],
+      "terminos_quitados": {
+        "CUR-111": "rancho"
+      }
+    }
+  ]
 }
