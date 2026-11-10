@@ -20,7 +20,7 @@ Steps:
   - data/annotation/curado_clave.csv: layer proposed by the filter. NOT to be
     shared: the annotation is blind.
 --evaluate SHEET: Table 2 (proposed layer against the group's), agreement
-  between annotators and the 90 items with their final layer and fragment:
+  between annotators and every item with its final layer and fragment:
   data/curated/curado_anotado.jsonl and reports/04_curado_numeros.json. It
   reads the frozen corpus in data/curated/.
 
@@ -51,6 +51,9 @@ from pipeline import stage03b_contexts as s03b
 ANNOTATION_DIR = s02.ANNOTATION_DIR
 SHEET = os.path.join(ANNOTATION_DIR, "curado_planilla.xlsx")
 KEY_FILE = os.path.join(ANNOTATION_DIR, "curado_clave.csv")
+# The group's check of each false friend against the DLE: the competing sense
+# of Spain or Mexico (option b of the item) comes from here.
+DLE_FILE = os.path.join(ANNOTATION_DIR, "lunfabench_dle_referencia.csv")
 SELECTION = os.path.join(common.DATA_INTERIM, "curado_seleccion.jsonl")
 # The evaluation reads the frozen corpus (python -m pipeline.freeze), so it
 # does not depend on the intermediate outputs.
@@ -498,6 +501,7 @@ def evaluate(path, cfg):
     annotated = {r["id"]: r for r in s02.read_annotations(path)}
     key_rows = {r["id"]: r for r in csv.DictReader(open(KEY_FILE, encoding="utf-8"))}
     corpus = {f["id"]: f for f in common.read_jsonl(FROZEN)}
+    dle = {r["id"]: r for r in csv.DictReader(open(DLE_FILE, encoding="utf-8"))}
 
     def final(r, field):
         """Adjudicated decision ("capa final" / "fragmento final")."""
@@ -534,7 +538,7 @@ def evaluate(path, cfg):
                                        "kappa": s02.cohen_kappa(between_fragment, ["A", "B"])},
     }
 
-    # The 90 items with the layer and the fragment the group decided.
+    # Every item with the layer and the fragment the group decided.
     from_human = {v: k for k, v in HUMAN_LAYER.items()}
     items = []
     for n, id_ in enumerate(sorted(corpus), 1):
@@ -543,12 +547,13 @@ def evaluate(path, cfg):
         x = f["alternativo"] if final(r, "fragmento") == "B" and f["alternativo"] else f["principal"]
         items.append({
             "id": f"LB-{n:03d}", "term": f["term"], "layer": layer, "decade": decade(x),
-            "genre": x.get("genre", ""), "context": x["context"], "context_source": "letra",
+            "genre": x.get("genre", ""), "context": x["context"],
+            "context_source": x.get("context_source", "letra"),
             "source": {**x["source"], "planilla_id": id_},
             "reference_sense": {"text": f["acepcion_de_referencia"],
                                 "source": f["fuente_acepcion"]},
-            "competing_sense": r.get("acepcion_competidora_1") or
-            r.get("acepcion_competidora_2") or "",
+            "competing_sense": {"text": dle.get(id_, {}).get("acepcion_competidora_esp_mex", "").strip(),
+                                "review": dle.get(id_, {}).get("evaluacion", "").strip()},
             "options": {"a_correcta": "", "b_otra_variedad": "", "c_plausible": "",
                         "d_incorrecta": ""},
             "pipeline": {"stage": "04_curado", "validated_sense": bool(final(r, "fragmento")),
@@ -559,6 +564,10 @@ def evaluate(path, cfg):
         })
     common.write_jsonl(ANNOTATED, items)
     result["curado_por_capa"] = dict(Counter(x["layer"] for x in items))
+    # False friends still without a competing sense: option b cannot be built.
+    result["falsos_amigos_sin_acepcion_b"] = sorted(
+        x["source"]["planilla_id"] for x in items
+        if x["layer"] == "falso_amigo" and not x["competing_sense"]["text"])
     with open(NUMBERS, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     print(json.dumps(result, ensure_ascii=False, indent=2))

@@ -1,4 +1,4 @@
-"""EDA figure: the 90 items of the curated set by decade and layer.
+"""EDA figure: the items of the curated set by decade and layer.
 
 Grid of decade (of fragment A, according to Genius) by layer, with the number
 of items written in each cell and the color on a single blue scale (darker,

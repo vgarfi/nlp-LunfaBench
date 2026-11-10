@@ -8,16 +8,23 @@ peninsular y mexicana. Queremos medir qué hacen ante una palabra que acá
 significa una cosa y allá otra, como *curro*: no solo si se equivocan, sino si
 sus errores caen siempre del mismo lado.
 
-Son **90 términos**, cada uno con su acepción rioplatense y un fragmento
-real de alguna letra de canción de artistas de Buenos Aires. Quedan congelados en
-`data/curated/`.
+Son **117 términos**, cada uno con su acepción rioplatense y un fragmento que
+la usa en ese sentido, casi siempre de una letra de canción de artistas de
+Buenos Aires. Quedan congelados en `data/curated/`.
+
+El pipeline sorteó 90 (40 falsos amigos, 20 sin homónimo, 15 polisémicos y 15
+controles). En la revisión, el grupo reemplazó términos y fragmentos y agregó
+27 términos a mano (CUR-091 a CUR-117), sobre todo falsos amigos, porque la
+anotación pasó muchos de los propuestos a polisémicos. La capa de cada término
+es la que deciden los anotadores en la planilla («capa final»), no la cuota del
+sorteo.
 
 | Capa | Qué la define | Ejemplo |
 |---|---|---|
-| Falso amigo (40) | Existe en las dos variedades, con significados distintos. | *curro*: acá negocio turbio; en España, trabajo. |
-| Sin homónimo (20) | Lunfardo puro: no existe con otro sentido afuera. | *yuta* (policía), *guita* (dinero). |
-| Polisémico (15) | Varias acepciones, todas usadas acá. | *careta*: máscara, y también persona hipócrita. |
-| Control (15) | Español general: significa lo mismo en todos lados. | *ruido*, *cielo*. Línea de base. |
+| Falso amigo | Existe en las dos variedades, con significados distintos. | *curro*: acá negocio turbio; en España, trabajo. |
+| Sin homónimo | Lunfardo puro: no existe con otro sentido afuera. | *yuta* (policía), *guita* (dinero). |
+| Polisémico | Varias acepciones, todas usadas acá. | *careta*: máscara, y también persona hipócrita. |
+| Control | Español general: significa lo mismo en todos lados. | *ruido*, *gota*. Línea de base. |
 
 ## Un término del conjunto
 
@@ -50,7 +57,9 @@ real de alguna letra de canción de artistas de Buenos Aires. Quedan congelados 
 
 Los fragmentos son de 8 a 25 palabras y los saltos de verso se marcan con
 `" / "`. **Las letras completas nunca se guardan**: se procesan en memoria y en
-disco queda solo el fragmento con su fuente. `subwords` es en cuántos pedazos
+disco queda solo el fragmento con su fuente. `context_source` dice de dónde sale
+el fragmento: `letra` en casi todos; en tres términos sin letra con ese sentido,
+`ejemplo_diccionario` o `redactado_grupo`. `subwords` es en cuántos pedazos
 parte el término cada tokenizador, y `zipf` su frecuencia en español.
 
 ## Estructura
@@ -67,5 +76,6 @@ config.yaml   umbrales, semillas y cuotas
 .env          token de Genius (no va a git)
 ```
 
-Cómo se armaron los 90: `reports/pipeline.md`. Análisis exploratorio:
-`reports/eda.md`.
+Cómo se armaron los 90 del sorteo: `reports/pipeline.md`. Los cambios hechos a
+mano después se reconocen en cada fragmento por `pipeline.stage`
+(`revision_grupo_<fecha>`). Análisis exploratorio: `reports/eda.md`.
