@@ -8,16 +8,18 @@ peninsular y mexicana. Queremos medir qué hacen ante una palabra que acá
 significa una cosa y allá otra, como *curro*: no solo si se equivocan, sino si
 sus errores caen siempre del mismo lado.
 
-Son **116 términos**, cada uno con su acepción rioplatense y un fragmento que
-la usa en ese sentido, casi siempre de una letra de canción de artistas de
-Buenos Aires. Quedan congelados en `data/curated/`.
+Son **114 términos**, cada uno con su acepción rioplatense y un fragmento que
+la usa en ese sentido, casi siempre de una letra de canción de artistas
+argentinos, en su mayoría de Buenos Aires. Quedan congelados en
+`data/curated/`.
 
 El pipeline sorteó 90 (40 falsos amigos, 20 sin homónimo, 15 polisémicos y 15
-controles). En la revisión, el grupo reemplazó términos y fragmentos y agregó
+controles). En la revisión, el grupo reemplazó términos y fragmentos, agregó
 26 términos a mano (CUR-091 a CUR-117, sin CUR-111), sobre todo falsos
-amigos, porque la anotación pasó muchos de los propuestos a polisémicos. La capa
-de cada término es la que deciden los anotadores en la planilla («capa final»),
-no la cuota del sorteo.
+amigos, porque la anotación pasó muchos de los propuestos a polisémicos, y sacó
+*muñeca* y *ciego* (CUR-081 y CUR-082), que no tenían ningún fragmento con su
+acepción. Los ids no se renumeraron. La capa de cada término es la que deciden
+los anotadores en la planilla («capa final»), no la cuota del sorteo.
 
 | Capa | Qué la define | Ejemplo |
 |---|---|---|

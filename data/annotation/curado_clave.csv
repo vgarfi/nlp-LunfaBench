@@ -79,8 +79,6 @@ CUR-077,guarda,falso_amigo,cand:guarda,13
 CUR-078,gota,control_negativo,ctrl:gota,13
 CUR-079,corte,falso_amigo,cand:corte,13
 CUR-080,batir,falso_amigo,cand:batir,13
-CUR-081,muñeca,polisemico_interno,cand:muñeca,13
-CUR-082,ciego,falso_amigo,cand:ciego,13
 CUR-083,bacán,lunfardo_sin_homonimo,cand:bacan,13
 CUR-084,quebrar,falso_amigo,cand:quebrar,13
 CUR-085,cristal,control_negativo,ctrl:cristal,13

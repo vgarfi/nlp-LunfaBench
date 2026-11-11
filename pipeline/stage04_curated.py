@@ -20,7 +20,8 @@ Steps:
   - data/annotation/curado_clave.csv: layer proposed by the filter. NOT to be
     shared: the annotation is blind.
 --evaluate SHEET: Table 2 (proposed layer against the group's), agreement
-  between annotators and every item with its final layer and fragment:
+  between annotators and every item with its final layer and fragment, the
+  text the models read (config «entrada_modelos») and its Zipf:
   data/curated/curado_anotado.jsonl and reports/04_curado_numeros.json. It
   reads the frozen corpus in data/curated/.
 
@@ -106,6 +107,23 @@ def reference_sense(target, candidates, controls):
 def decade(x):
     year = x["source"].get("year") or x["source"].get("genius_release_year")
     return year // 10 * 10 if year else None
+
+
+def model_input(context, cfg):
+    """Text the models read: verses joined with the configured separator and,
+    if set, the capital at the start of each verse lowered (proper nouns in
+    the config keep it). The stored fragment is not changed."""
+    conf = cfg["entrada_modelos"]
+    keep = set(conf["conservan_mayuscula"])
+    verses = []
+    for verse in context.split(" / "):
+        verse = verse.strip()
+        first = verse.split(" ", 1)[0].strip("¡¿\"'(“”‘’,.;:!?")
+        if conf["minuscula_inicio_verso"] and first and first not in keep:
+            i = next(i for i, ch in enumerate(verse) if ch.isalpha())
+            verse = verse[:i] + verse[i].lower() + verse[i + 1:]
+        verses.append(verse)
+    return conf["separador_versos"].join(verses)
 
 
 def distinct_songs(fragments):
@@ -567,6 +585,9 @@ def evaluate(path, cfg):
         items.append({
             "id": f"LB-{n:03d}", "term": f["term"], "layer": layer, "decade": decade(x),
             "genre": x.get("genre", ""), "context": x["context"],
+            "input_text": model_input(x["context"], cfg),
+            # Covariate of the analysis (config «analisis»).
+            "zipf": f["zipf"],
             "context_source": x.get("context_source", "letra"),
             "source": {**x["source"], "planilla_id": id_},
             "reference_sense": {"text": f["acepcion_de_referencia"],

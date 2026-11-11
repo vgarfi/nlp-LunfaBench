@@ -170,8 +170,8 @@ etapa03b_contextos:
   max_fragmentos_por_termino: 100
 
 etapa04_curado:
-  # Cuotas del sorteo original (90 items). El conjunto final tiene 116: el grupo
-  # agrego 26 terminos a mano en la revision (ver data/curated/curado.jsonl).
+  # Cuotas del sorteo original (90 items). El conjunto final tiene 114: el grupo
+  # agrego 26 terminos a mano y saco 2 (ver data/curated/curado.jsonl).
   cuotas: {falso_amigo: 40, lunfardo_sin_homonimo: 20, polisemico_interno: 15,
            control_negativo: 15}
   # Afuera las N palabras mas frecuentes del espanol (no, dar, hacer): son
@@ -179,3 +179,20 @@ etapa04_curado:
   excluir_frecuentes: 500
   min_palabras_contexto: 8
   semilla: 13
+
+# Texto que reciben los modelos, armado desde el fragmento (decidido el
+# 10/11/2026). El fragmento guardado no cambia: esto vale solo para la entrada.
+entrada_modelos:
+  # Los saltos de verso (" / ") se reemplazan por este separador.
+  separador_versos: " "
+  # La mayuscula de comienzo de verso pasa a minuscula, para que BETO y
+  # RoBERTa-BNE no partan el termino en mas subwords (Cargar contra cargar).
+  minuscula_inicio_verso: true
+  # Palabras que conservan la mayuscula: nombres propios y el "I" del ingles.
+  conservan_mayuscula: [Duki, Garufa, Jessica, Juan, Leguisamo, I]
+
+analisis:
+  # Los controles no estan emparejados en frecuencia con los falsos amigos
+  # (Zipf mediano 4,32 contra 3,90): la frecuencia entra como covariable en vez
+  # de volver a sortear los controles (decidido el 10/11/2026).
+  covariables: [zipf]

@@ -1,5 +1,5 @@
 {
-  "anotados": 116,
+  "anotados": 114,
   "tabla2_propuesta_vs_grupo": {
     "espanol_general": {
       "falso_amigo": 0,
@@ -9,7 +9,7 @@
     },
     "falso_amigo": {
       "falso_amigo": 42,
-      "polisemico_interno": 20,
+      "polisemico_interno": 19,
       "lunfardo_sin_homonimo": 2,
       "espanol_general": 1
     },
@@ -21,23 +21,23 @@
     },
     "polisemico_interno": {
       "falso_amigo": 0,
-      "polisemico_interno": 15,
+      "polisemico_interno": 14,
       "lunfardo_sin_homonimo": 0,
       "espanol_general": 0
     }
   },
-  "tabla2_acuerdo": 0.7758620689655172,
-  "tabla2_kappa": 0.6823925863521483,
+  "tabla2_acuerdo": 0.7807017543859649,
+  "tabla2_kappa": 0.6882861205293667,
   "entre_anotadores_capa": {
-    "pares": 116,
-    "kappa": 0.9040529363110009
+    "pares": 114,
+    "kappa": 0.9024807527801539
   },
   "entre_anotadores_fragmento": {
-    "pares": 116,
+    "pares": 114,
     "kappa": 1.0
   },
   "curado_por_capa": {
-    "polisemico_interno": 37,
+    "polisemico_interno": 35,
     "control_negativo": 17,
     "lunfardo_sin_homonimo": 20,
     "falso_amigo": 42
