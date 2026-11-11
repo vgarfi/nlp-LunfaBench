@@ -93,9 +93,9 @@ Todas las acepciones están en español. Los controles salen de wordfreq.
   («fragmento final»). En el corpus, `validated_sense: true` marca los 70
   fragmentos A que el grupo puso a mano en las revisiones; los 44 que quedaron
   del pipeline siguen en `false` y los validó la anotación.
-- **Fragmentos buscados a mano.** En 15 términos del sorteo el grupo buscó otro
+- **Fragmentos buscados a mano.** En 16 términos del sorteo el grupo buscó otro
   fragmento porque el que había no ilustraba la acepción o la definía (como
-  *cotorro* y *vento*). Para *cargar*, *quemar* y *quebrar* no apareció en
+  *cotorro* y *vento*), o porque cambió la acepción (*curtir*). Para *cargar*, *quemar* y *quebrar* no apareció en
   ninguna letra, y llevan los fragmentos sin canción de arriba. *muñeca* y
   *ciego* se sacaron porque no apareció ninguno.
 - **Acepción competidora.** La de cada falso amigo (opción b) la escribieron
@@ -113,9 +113,10 @@ Todas las acepciones están en español. Los controles salen de wordfreq.
   procedencia la chequeó el grupo, y esos fragmentos quedan marcados con
   `origin_source: verificacion_manual_grupo`. Uno (*muerto*, de wondereli) es
   de un artista argentino sin ciudad conocida.
-- **Cuatro acepciones sin respaldo de diccionario.** *viste*, *correr*, *bola*
-  y *cartera* no tienen esa acepción en el Wikcionario ni en
-  diccionarioargentino.com, así que la redactó el grupo.
+- **Cinco acepciones sin respaldo de diccionario.** *viste*, *correr*, *bola*,
+  *cartera* y *curtir* («curtite»: que se arregle solo) no tienen esa acepción
+  en el Wikcionario ni en diccionarioargentino.com, así que la redactó el
+  grupo.
 - **Año tomado de Genius.** Para tangos suele ser el de una reedición, así que
   las décadas de la Figura 1 son aproximadas.
 - **Tokenizador de RoBERTa-BNE.** El repositorio oficial se vació en 2025. Los
@@ -125,11 +126,15 @@ Todas las acepciones están en español. Los controles salen de wordfreq.
 
 Decididas por el grupo el 10/11/2026 y fijadas en `config.yaml`
 (`entrada_modelos` y `analisis`). El fragmento guardado no cambia: cada ítem de
-`curado_anotado.jsonl` lleva además el texto que reciben los modelos
-(`input_text`).
+`curado_anotado.jsonl` lleva además el texto que reciben los encoders
+(`input_text`) y el que reciben el LLM y las personas (`input_text_llm`).
 
-- **Separador de versos.** Los saltos (`" / "`) se reemplazan por un espacio,
-  como dice el codebook.
+- **Separador de versos.** Para el LLM y las personas, cada verso va en su
+  línea, así el fragmento se lee como una canción. Para los encoders, los
+  versos se unen con un espacio: RoBERTuito y BETO tratan el salto de línea
+  como un espacio, pero RoBERTa-BNE lo cuenta como un token y parte distinto la
+  primera palabra de cada verso. El codebook decía que los saltos se quitan:
+  hay que actualizarlo.
 - **Mayúsculas de comienzo de verso.** La primera letra de cada verso pasa a
   minúscula, para que los modelos que distinguen mayúsculas no partan el
   término en más subwords (*Cargar* contra *cargar*). Conservan la mayúscula

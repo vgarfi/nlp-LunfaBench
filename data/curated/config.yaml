@@ -183,8 +183,11 @@ etapa04_curado:
 # Texto que reciben los modelos, armado desde el fragmento (decidido el
 # 10/11/2026). El fragmento guardado no cambia: esto vale solo para la entrada.
 entrada_modelos:
-  # Los saltos de verso (" / ") se reemplazan por este separador.
-  separador_versos: " "
+  # Los saltos de verso (" / ") se reemplazan por este separador, segun el
+  # sistema. El LLM (y las personas) ven los versos en lineas, como una
+  # cancion. Los encoders, con espacio: RoBERTa-BNE cuenta el salto de linea
+  # como un token y parte distinto la primera palabra de cada verso.
+  separador_versos: {llm: "\n", encoders: " "}
   # La mayuscula de comienzo de verso pasa a minuscula, para que BETO y
   # RoBERTa-BNE no partan el termino en mas subwords (Cargar contra cargar).
   minuscula_inicio_verso: true

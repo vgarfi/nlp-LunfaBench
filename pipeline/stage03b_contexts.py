@@ -277,8 +277,11 @@ def fetch_lyrics(url, cfg, state):
                 for br in c.find_all("br"):
                     br.replace_with("\n")
             text = common.normalize_homoglyphs("\n".join(c.get_text() for c in containers))
+            # Out: section marks ([Coro]) and the title some transcribers type
+            # as the first line (Letra de "Mi Noche Triste").
             return [l.strip() for l in text.split("\n")
-                    if l.strip() and not re.fullmatch(r"\[.*\]", l.strip())]
+                    if l.strip() and not re.fullmatch(r"\[.*\]", l.strip())
+                    and not re.fullmatch(r"(?i)letra de\s*[\"“«].*[\"”»]", l.strip())]
         if r is not None and r.status_code == 404:
             return None
         time.sleep(max(1.0, http["pausa_segundos"]) * 5 * (2 ** attempt))

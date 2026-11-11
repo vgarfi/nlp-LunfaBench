@@ -209,9 +209,9 @@
     }
   },
   "archivos": {
-    "curado.jsonl": "081d357605205a9e277cf7e13584c3551f5d2176a7f472ed1c03c2fb6e1fe694",
-    "config.yaml": "041c5342ea74d67546d4618c9a0acebe1e3fcc3ae4be42e1cebcac3f78f74879",
-    "data/annotation/curado_planilla.xlsx": "e203e26f7451ffddfb1d10100b0b7817e6c95119fa2e8b791bd45d24b506ca97",
+    "curado.jsonl": "5ba089aac07a0a3fc6419609454308391a27e217b98b91cce3827e41555f76cc",
+    "config.yaml": "70fe964b5ea48c74cda1107198b6898ac258d371fa541d5b000617ffe3b3bb1a",
+    "data/annotation/curado_planilla.xlsx": "ecc2dd31ada5ccb47fe19d6350ba3eec81782660aee8a501c77c83ee65e65f8f",
     "data/annotation/curado_clave.csv": "3ebb0e493b71320c2cce9d47fc90cc872a8d02a87bb1150d74342bb83fe201c2",
     "data/annotation/lunfabench_dle_referencia.csv": "7a67147471e1ca22314f8e85bfebe8e14b931a20473b631edbd322c9dd5edcab",
     "data/annotation/acepcion_competidora_elegida.csv": "4df45781933f9ec2b6def3e3d11de0f3c23b2f323e39afd6894cbd4405b873c9"
@@ -262,7 +262,7 @@
     ],
     "kaikki_removido": true
   },
-  "actualizado": "2026-11-11T00:16:37+00:00",
+  "actualizado": "2026-11-11T01:26:30+00:00",
   "cuotas_del_curado_nota": "Cuotas del sorteo original de 90; la capa final la decide la anotacion.",
   "revisiones_posteriores": [
     {
@@ -289,7 +289,7 @@
     },
     {
       "fecha": "2026-11-10",
-      "descripcion": "El grupo agrego terminos a mano, sobre todo falsos amigos, porque la anotacion paso muchos de los propuestos a polisemicos. CUR-111 (rancho) se saco despues y los ids no se renumeraron. CUR-096 es gomas, solo en plural. Despues se reemplazaron los fragmentos de cotorro, vento, muerto y dormir (el de muerto y el de dormir son de artistas argentinos fuera de la lista de Buenos Aires, verificados por el grupo) y se sacaron muñeca y ciego, que no tenian ningun fragmento con su acepcion.",
+      "descripcion": "El grupo agrego terminos a mano, sobre todo falsos amigos, porque la anotacion paso muchos de los propuestos a polisemicos. CUR-111 (rancho) se saco despues y los ids no se renumeraron. CUR-096 es gomas, solo en plural. Despues se reemplazaron los fragmentos de cotorro, vento, muerto y dormir (el de muerto y el de dormir son de artistas argentinos fuera de la lista de Buenos Aires, verificados por el grupo) y se sacaron muñeca y ciego, que no tenian ningun fragmento con su acepcion. curtir pasa a la acepcion de «curtite» (que se arregle solo), redactada por el grupo, con un fragmento nuevo. Al fragmento A de percanta se le saco la primera linea, que era el titulo («Letra de ...») y no parte de la letra.",
       "terminos_agregados": [
         "CUR-091",
         "CUR-092",
@@ -327,7 +327,8 @@
         "CUR-020",
         "CUR-032",
         "CUR-034",
-        "CUR-037"
+        "CUR-037",
+        "CUR-057"
       ]
     }
   ]
