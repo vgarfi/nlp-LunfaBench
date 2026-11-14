@@ -210,11 +210,12 @@
   },
   "archivos": {
     "curado.jsonl": "5ba089aac07a0a3fc6419609454308391a27e217b98b91cce3827e41555f76cc",
-    "config.yaml": "70fe964b5ea48c74cda1107198b6898ac258d371fa541d5b000617ffe3b3bb1a",
+    "config.yaml": "fca164a73c7eb4fc7f0d3054ebce3711bc052217b477c61d1e70f24416e3e16f",
     "data/annotation/curado_planilla.xlsx": "ecc2dd31ada5ccb47fe19d6350ba3eec81782660aee8a501c77c83ee65e65f8f",
     "data/annotation/curado_clave.csv": "3ebb0e493b71320c2cce9d47fc90cc872a8d02a87bb1150d74342bb83fe201c2",
     "data/annotation/lunfabench_dle_referencia.csv": "7a67147471e1ca22314f8e85bfebe8e14b931a20473b631edbd322c9dd5edcab",
-    "data/annotation/acepcion_competidora_elegida.csv": "4df45781933f9ec2b6def3e3d11de0f3c23b2f323e39afd6894cbd4405b873c9"
+    "data/annotation/acepcion_competidora_elegida.csv": "4df45781933f9ec2b6def3e3d11de0f3c23b2f323e39afd6894cbd4405b873c9",
+    "data/annotation/opciones_items.csv": "cf10028bebd4cba4bd3afc7a3aff42104c4539097b7aa8717a8074dc0ec70c1d"
   },
   "revision_grupo": {
     "fecha": "2026-09-27",
@@ -262,7 +263,7 @@
     ],
     "kaikki_removido": true
   },
-  "actualizado": "2026-11-11T01:26:30+00:00",
+  "actualizado": "2026-11-14T02:26:50+00:00",
   "cuotas_del_curado_nota": "Cuotas del sorteo original de 90; la capa final la decide la anotacion.",
   "revisiones_posteriores": [
     {

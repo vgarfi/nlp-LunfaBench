@@ -21,7 +21,9 @@ Steps:
     shared: the annotation is blind.
 --evaluate SHEET: Table 2 (proposed layer against the group's), agreement
   between annotators and every item with its final layer and fragment, the
-  text the encoders and the LLM read (config «entrada_modelos») and its Zipf:
+  text the encoders and the LLM read (config «entrada_modelos»), its Zipf,
+  its four options (data/annotation/opciones_items.csv) and their fixed order
+  of presentation (config «items»):
   data/curated/curado_anotado.jsonl and reports/04_curado_numeros.json. It
   reads the frozen corpus in data/curated/.
 
@@ -59,6 +61,10 @@ DLE_FILE = os.path.join(ANNOTATION_DIR, "lunfabench_dle_referencia.csv")
 # sheet («acepción competidora 1» and «2»). Where the two annotators wrote
 # different senses, this file says which one the group kept (1 or 2).
 COMPETING_CHOICE_FILE = os.path.join(ANNOTATION_DIR, "acepcion_competidora_elegida.csv")
+# The four options of each item as the group approved them (a: rioplatense
+# sense, b: competing sense or distractor, c: fits the fragment, d: does not).
+OPTIONS_FILE = os.path.join(ANNOTATION_DIR, "opciones_items.csv")
+OPTION_KEYS = {"a": "a_correcta", "b": "b_otra_variedad", "c": "c_plausible", "d": "d_incorrecta"}
 SELECTION = os.path.join(common.DATA_INTERIM, "curado_seleccion.jsonl")
 # The evaluation reads the frozen corpus (python -m pipeline.freeze), so it
 # does not depend on the intermediate outputs.
@@ -125,6 +131,15 @@ def model_input(context, cfg, system):
             verse = verse[:i] + verse[i].lower() + verse[i + 1:]
         verses.append(verse)
     return conf["separador_versos"][system].join(verses)
+
+
+def option_order(id_, cfg):
+    """Fixed order in which the options of an item are shown: letter A-D ->
+    option key. Seeded by the config seed and the item id, so it does not
+    depend on which other items are in the set."""
+    keys = list(OPTION_KEYS.values())
+    random.Random(f'{cfg["items"]["semilla_orden_opciones"]}:{id_}').shuffle(keys)
+    return dict(zip("ABCD", keys))
 
 
 def distinct_songs(fragments):
@@ -540,6 +555,13 @@ def evaluate(path, cfg):
 
     chosen = {r["id"]: r["anotador_elegido"].strip()
               for r in csv.DictReader(open(COMPETING_CHOICE_FILE, encoding="utf-8"))}
+    options = {r["id"]: {OPTION_KEYS[k]: r[k].strip() for k in OPTION_KEYS}
+               for r in csv.DictReader(open(OPTIONS_FILE, encoding="utf-8"))}
+    without_options = sorted(id_ for id_ in corpus
+                             if not all(options.get(id_, {}).get(k) for k in OPTION_KEYS.values()))
+    if without_options:
+        raise SystemExit(f"{len(without_options)} items without their four options in "
+                         f"{os.path.relpath(OPTIONS_FILE, common.REPO_ROOT)}: {', '.join(without_options)}")
 
     def competing_sense(id_, r):
         """Text of annotator 1 and 2 when they agree or only one wrote it; the
@@ -586,6 +608,8 @@ def evaluate(path, cfg):
         items.append({
             "id": f"LB-{n:03d}", "term": f["term"], "layer": layer, "decade": decade(x),
             "genre": x.get("genre", ""), "context": x["context"],
+            # The form of the term as it appears in the fragment (fachero, not facha).
+            "form_in_context": x["forma_en_letra"],
             # What the encoders read (verses joined by a space) and what the
             # LLM and the people read (one verse per line).
             "input_text": model_input(x["context"], cfg, "encoders"),
@@ -598,8 +622,11 @@ def evaluate(path, cfg):
                                 "source": f["fuente_acepcion"]},
             "competing_sense": {"text": competing_sense(id_, r),
                                 "dle_review": dle.get(id_, {}).get("evaluacion", "").strip()},
-            "options": {"a_correcta": "", "b_otra_variedad": "", "c_plausible": "",
-                        "d_incorrecta": ""},
+            "options": options[id_],
+            # Fixed order of presentation (letter -> option) and the letter of
+            # the correct answer in that order.
+            "presentation": (order := option_order(id_, cfg)),
+            "answer_letter": next(k for k, v in order.items() if v == "a_correcta"),
             "pipeline": {"stage": "04_curado", "validated_sense": bool(final(r, "fragmento")),
                          "validated_item": False, "capa_propuesta": f["capa_propuesta"]},
             "annotation": {"raw": {k: v for k, v in r.items()

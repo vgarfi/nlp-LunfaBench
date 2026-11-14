@@ -73,7 +73,11 @@ analysis/     eda.py, fertility.py y figure_curated.py
 data/curated/ el corpus: curado.jsonl, manifiesto.json, config.yaml
 data/annotation/  curado_planilla.xlsx (se comparte) y curado_clave.csv (no);
               acepcion_competidora_elegida.csv: cuál de las dos acepciones
-              competidoras va cuando los anotadores difieren
+              competidoras va cuando los anotadores difieren;
+              opciones_items.csv: las cuatro opciones aprobadas de cada ítem;
+              hablante_es/: los 30 ítems del hablante de España
+              (pipeline/stage05_speaker.py y speaker_form.gs; la clave no se
+              comparte)
 data/raw/, data/interim/   descargas y salidas intermedias (no van a git)
 reports/      pipeline.md, eda.md, figura_curado.png e informe de la entrega
 config.yaml   umbrales, semillas y cuotas

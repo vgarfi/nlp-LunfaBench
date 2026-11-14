@@ -199,3 +199,30 @@ analisis:
   # (Zipf mediano 4,32 contra 3,90): la frecuencia entra como covariable en vez
   # de volver a sortear los controles (decidido el 10/11/2026).
   covariables: [zipf]
+
+items:
+  # Orden fijo en que se presentan las cuatro opciones de cada item (a las
+  # personas y como orden base del LLM): sale de esta semilla y del id del
+  # item (CUR-xxx), asi no cambia si se agregan o sacan items.
+  semilla_orden_opciones: 13
+
+hablante:
+  # Items que responde un hablante de Espana (informe: 30 items), sorteados
+  # con semilla. Falsos amigos: 20 entre los elegibles, los 28 cuya b es un
+  # sentido de Espana o general. Afuera los que tienen la b de Mexico (timba,
+  # cotorro, taco, boludo, pelar, torta, pendejo, macana, joda, boliche, chota,
+  # pucha, pava, cheto): el hablante tampoco conoce la b. Sin homonimo y
+  # controles: 5 de cada capa, sin los fragmentos que definen la palabra ni los
+  # compartidos entre items (decidido el 13/11/2026).
+  falsos_amigos_elegibles: [CUR-005, CUR-011, CUR-013, CUR-015, CUR-022, CUR-029,
+                            CUR-049, CUR-074, CUR-076, CUR-091, CUR-092, CUR-093,
+                            CUR-094, CUR-095, CUR-096, CUR-097, CUR-100, CUR-101,
+                            CUR-102, CUR-104, CUR-106, CUR-108, CUR-109, CUR-110,
+                            CUR-113, CUR-114, CUR-115, CUR-116]
+  falsos_amigos_sorteados: 20
+  por_capa_sorteados: {lunfardo_sin_homonimo: 5, control_negativo: 5}
+  # vento y chabon: el fragmento define la palabra; tesoro es metaforico; el
+  # resto comparte fragmento.
+  excluir: [CUR-034, CUR-025, CUR-030, CUR-007, CUR-050, CUR-060, CUR-053, CUR-064, CUR-077,
+            CUR-047, CUR-079]
+  semilla: 13
